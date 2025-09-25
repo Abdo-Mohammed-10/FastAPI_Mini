@@ -1,0 +1,17 @@
+POST  http://127.0.0.1:8000/bands/
+Content-Type: application/json
+
+{
+  "name": "Nirvana",
+  "genre": "grunge",
+  "albums": [
+    {
+      "id": 1,
+      "title": "Nevermind",
+      "band_id": 6,
+      "year": 1991
+    }
+  ]
+}
+###
+GET   http://127.0.0.1:8000/bands?genre=rock

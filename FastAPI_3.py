@@ -3,7 +3,6 @@ from schema_3 import Band, GenreChoice
 
 app = FastAPI()
 
-# Bands data (خليت كل band عنده albums = [] لو مش موجودة)
 Bands = [
     {"id": 1, "name": "The Beatles", "genre": "rock", "albums": []},
     {"id": 2, "name": "Led Zeppelin", "genre": "rock", "albums": []},
@@ -105,3 +104,4 @@ async def status():
 @app.get("/about", summary="About this API", description="Returns information about this API.")
 async def about():
     return "This is a sample FastAPI application."
+

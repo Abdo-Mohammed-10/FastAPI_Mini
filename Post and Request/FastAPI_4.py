@@ -69,7 +69,7 @@ async def get_bands(
 
 @app.get("/bands/{band_id}")
 async def band(band_id: int) -> Bandwithid:
-    band = next((Bandwithid for band in Bands if band["id"] == band_id), None)
+    band = next((Bandwithid(**band) for band in Bands if band["id"] == band_id), None)
     if band is None:
         raise HTTPException(status_code=404, detail="Band not found")
     return band
@@ -78,7 +78,7 @@ async def band(band_id: int) -> Bandwithid:
 
 @app.get("/bands/genres/{genre}")
 async def get_bands_by_genre(genre: GenreChoice) -> list[dict]:
-    return [b for b in Bands if band["genre"].lower() == genre.value]
+    return [b for b in Bands if b["genre"].lower() == genre.value]
 
 # -------------------
 
